@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F55B36E1BB73023120CFD832 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3286B80DDF2994066E631A /* Pods.framework */; };
+		FB6023521BE9401900B00741 /* RetryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6023511BE9401900B00741 /* RetryRequest.swift */; };
+		FB9220E01BE2A427001C4279 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9220DF1BE2A427001C4279 /* AppDelegate.swift */; };
+		FB9220E21BE2A427001C4279 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9220E11BE2A427001C4279 /* ViewController.swift */; };
+		FB9220E51BE2A427001C4279 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9220E31BE2A427001C4279 /* Main.storyboard */; };
+		FB9220E71BE2A427001C4279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB9220E61BE2A427001C4279 /* Assets.xcassets */; };
+		FB9220EA1BE2A427001C4279 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9220E81BE2A427001C4279 /* LaunchScreen.storyboard */; };
+		FB9220F51BE2A427001C4279 /* NetworkRetryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9220F41BE2A427001C4279 /* NetworkRetryTests.swift */; };
+		FB9221001BE2A427001C4279 /* NetworkRetryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9220FF1BE2A427001C4279 /* NetworkRetryUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB9220F11BE2A427001C4279 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB9220D41BE2A427001C4279 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB9220DB1BE2A427001C4279;
+			remoteInfo = NetworkRetry;
+		};
+		FB9220FC1BE2A427001C4279 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB9220D41BE2A427001C4279 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB9220DB1BE2A427001C4279;
+			remoteInfo = NetworkRetry;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4CD8FA9BFB8EC43A999007B1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8631034B8E5AD37A60AE56C9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EB3286B80DDF2994066E631A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB6023511BE9401900B00741 /* RetryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetryRequest.swift; sourceTree = "<group>"; };
+		FB9220DC1BE2A427001C4279 /* NetworkRetry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkRetry.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9220DF1BE2A427001C4279 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB9220E11BE2A427001C4279 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB9220E41BE2A427001C4279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB9220E61BE2A427001C4279 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB9220E91BE2A427001C4279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB9220EB1BE2A427001C4279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB9220F01BE2A427001C4279 /* NetworkRetryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkRetryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9220F41BE2A427001C4279 /* NetworkRetryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRetryTests.swift; sourceTree = "<group>"; };
+		FB9220F61BE2A427001C4279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB9220FB1BE2A427001C4279 /* NetworkRetryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkRetryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9220FF1BE2A427001C4279 /* NetworkRetryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRetryUITests.swift; sourceTree = "<group>"; };
+		FB9221011BE2A427001C4279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB9220D91BE2A427001C4279 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F55B36E1BB73023120CFD832 /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9220ED1BE2A427001C4279 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9220F81BE2A427001C4279 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20ACFD9AD2063A8667ACA362 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8631034B8E5AD37A60AE56C9 /* Pods.debug.xcconfig */,
+				4CD8FA9BFB8EC43A999007B1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6A8DD79F678FD97130C713D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB3286B80DDF2994066E631A /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB9220D31BE2A427001C4279 = {
+			isa = PBXGroup;
+			children = (
+				FB9220DE1BE2A427001C4279 /* NetworkRetry */,
+				FB9220F31BE2A427001C4279 /* NetworkRetryTests */,
+				FB9220FE1BE2A427001C4279 /* NetworkRetryUITests */,
+				FB9220DD1BE2A427001C4279 /* Products */,
+				20ACFD9AD2063A8667ACA362 /* Pods */,
+				6A8DD79F678FD97130C713D2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FB9220DD1BE2A427001C4279 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB9220DC1BE2A427001C4279 /* NetworkRetry.app */,
+				FB9220F01BE2A427001C4279 /* NetworkRetryTests.xctest */,
+				FB9220FB1BE2A427001C4279 /* NetworkRetryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB9220DE1BE2A427001C4279 /* NetworkRetry */ = {
+			isa = PBXGroup;
+			children = (
+				FB9220DF1BE2A427001C4279 /* AppDelegate.swift */,
+				FB9220E11BE2A427001C4279 /* ViewController.swift */,
+				FB6023511BE9401900B00741 /* RetryRequest.swift */,
+				FB9220E31BE2A427001C4279 /* Main.storyboard */,
+				FB9220E61BE2A427001C4279 /* Assets.xcassets */,
+				FB9220E81BE2A427001C4279 /* LaunchScreen.storyboard */,
+				FB9220EB1BE2A427001C4279 /* Info.plist */,
+			);
+			path = NetworkRetry;
+			sourceTree = "<group>";
+		};
+		FB9220F31BE2A427001C4279 /* NetworkRetryTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB9220F41BE2A427001C4279 /* NetworkRetryTests.swift */,
+				FB9220F61BE2A427001C4279 /* Info.plist */,
+			);
+			path = NetworkRetryTests;
+			sourceTree = "<group>";
+		};
+		FB9220FE1BE2A427001C4279 /* NetworkRetryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FB9220FF1BE2A427001C4279 /* NetworkRetryUITests.swift */,
+				FB9221011BE2A427001C4279 /* Info.plist */,
+			);
+			path = NetworkRetryUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB9220DB1BE2A427001C4279 /* NetworkRetry */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB9221041BE2A427001C4279 /* Build configuration list for PBXNativeTarget "NetworkRetry" */;
+			buildPhases = (
+				C0D918B293B16099170CB855 /* Check Pods Manifest.lock */,
+				FB9220D81BE2A427001C4279 /* Sources */,
+				FB9220D91BE2A427001C4279 /* Frameworks */,
+				FB9220DA1BE2A427001C4279 /* Resources */,
+				A6E285A8FE9C9FD44C39F6AB /* Embed Pods Frameworks */,
+				5DCADB2C82E28CC5BCE388FD /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NetworkRetry;
+			productName = NetworkRetry;
+			productReference = FB9220DC1BE2A427001C4279 /* NetworkRetry.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB9220EF1BE2A427001C4279 /* NetworkRetryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB9221071BE2A427001C4279 /* Build configuration list for PBXNativeTarget "NetworkRetryTests" */;
+			buildPhases = (
+				FB9220EC1BE2A427001C4279 /* Sources */,
+				FB9220ED1BE2A427001C4279 /* Frameworks */,
+				FB9220EE1BE2A427001C4279 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB9220F21BE2A427001C4279 /* PBXTargetDependency */,
+			);
+			name = NetworkRetryTests;
+			productName = NetworkRetryTests;
+			productReference = FB9220F01BE2A427001C4279 /* NetworkRetryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FB9220FA1BE2A427001C4279 /* NetworkRetryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB92210A1BE2A427001C4279 /* Build configuration list for PBXNativeTarget "NetworkRetryUITests" */;
+			buildPhases = (
+				FB9220F71BE2A427001C4279 /* Sources */,
+				FB9220F81BE2A427001C4279 /* Frameworks */,
+				FB9220F91BE2A427001C4279 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB9220FD1BE2A427001C4279 /* PBXTargetDependency */,
+			);
+			name = NetworkRetryUITests;
+			productName = NetworkRetryUITests;
+			productReference = FB9220FB1BE2A427001C4279 /* NetworkRetryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB9220D41BE2A427001C4279 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = AboutObjects;
+				TargetAttributes = {
+					FB9220DB1BE2A427001C4279 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					FB9220EF1BE2A427001C4279 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = FB9220DB1BE2A427001C4279;
+					};
+					FB9220FA1BE2A427001C4279 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = FB9220DB1BE2A427001C4279;
+					};
+				};
+			};
+			buildConfigurationList = FB9220D71BE2A427001C4279 /* Build configuration list for PBXProject "NetworkRetry" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB9220D31BE2A427001C4279;
+			productRefGroup = FB9220DD1BE2A427001C4279 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB9220DB1BE2A427001C4279 /* NetworkRetry */,
+				FB9220EF1BE2A427001C4279 /* NetworkRetryTests */,
+				FB9220FA1BE2A427001C4279 /* NetworkRetryUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB9220DA1BE2A427001C4279 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9220EA1BE2A427001C4279 /* LaunchScreen.storyboard in Resources */,
+				FB9220E71BE2A427001C4279 /* Assets.xcassets in Resources */,
+				FB9220E51BE2A427001C4279 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9220EE1BE2A427001C4279 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9220F91BE2A427001C4279 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DCADB2C82E28CC5BCE388FD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6E285A8FE9C9FD44C39F6AB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0D918B293B16099170CB855 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB9220D81BE2A427001C4279 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB6023521BE9401900B00741 /* RetryRequest.swift in Sources */,
+				FB9220E21BE2A427001C4279 /* ViewController.swift in Sources */,
+				FB9220E01BE2A427001C4279 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9220EC1BE2A427001C4279 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9220F51BE2A427001C4279 /* NetworkRetryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9220F71BE2A427001C4279 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9221001BE2A427001C4279 /* NetworkRetryUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB9220F21BE2A427001C4279 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB9220DB1BE2A427001C4279 /* NetworkRetry */;
+			targetProxy = FB9220F11BE2A427001C4279 /* PBXContainerItemProxy */;
+		};
+		FB9220FD1BE2A427001C4279 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB9220DB1BE2A427001C4279 /* NetworkRetry */;
+			targetProxy = FB9220FC1BE2A427001C4279 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB9220E31BE2A427001C4279 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB9220E41BE2A427001C4279 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB9220E81BE2A427001C4279 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB9220E91BE2A427001C4279 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB9221021BE2A427001C4279 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB9221031BE2A427001C4279 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB9221051BE2A427001C4279 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8631034B8E5AD37A60AE56C9 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NetworkRetry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aboutobjects.NetworkRetry;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FB9221061BE2A427001C4279 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CD8FA9BFB8EC43A999007B1 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NetworkRetry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aboutobjects.NetworkRetry;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FB9221081BE2A427001C4279 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NetworkRetryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aboutobjects.NetworkRetryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetworkRetry.app/NetworkRetry";
+			};
+			name = Debug;
+		};
+		FB9221091BE2A427001C4279 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NetworkRetryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aboutobjects.NetworkRetryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetworkRetry.app/NetworkRetry";
+			};
+			name = Release;
+		};
+		FB92210B1BE2A427001C4279 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NetworkRetryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aboutobjects.NetworkRetryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NetworkRetry;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		FB92210C1BE2A427001C4279 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NetworkRetryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aboutobjects.NetworkRetryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NetworkRetry;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB9220D71BE2A427001C4279 /* Build configuration list for PBXProject "NetworkRetry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB9221021BE2A427001C4279 /* Debug */,
+				FB9221031BE2A427001C4279 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB9221041BE2A427001C4279 /* Build configuration list for PBXNativeTarget "NetworkRetry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB9221051BE2A427001C4279 /* Debug */,
+				FB9221061BE2A427001C4279 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB9221071BE2A427001C4279 /* Build configuration list for PBXNativeTarget "NetworkRetryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB9221081BE2A427001C4279 /* Debug */,
+				FB9221091BE2A427001C4279 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB92210A1BE2A427001C4279 /* Build configuration list for PBXNativeTarget "NetworkRetryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB92210B1BE2A427001C4279 /* Debug */,
+				FB92210C1BE2A427001C4279 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB9220D41BE2A427001C4279 /* Project object */;
+}
