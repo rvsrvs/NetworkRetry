@@ -32,9 +32,9 @@ class ViewController: UIViewController {
         self.spinner.startAnimating()
         
         // Start the request
-        let req = NetworkRetry.request(Method.GET, URLString: endpoint, waitInterval: 10.0) { (response) -> Void in
+        let req = NetworkRetry.requestJSON(Method.GET, URLString: endpoint, waitInterval: 10.0) { (response) -> Void in
             
-            // handle the response which is an Alamofire response object
+            // handle the response which is an Alamofire response object carrying JSON
             switch response.result {
             case .Success(let value):
                 self.logTextView.text.appendContentsOf("JSON     = \(value)\n"  ) // result of response serialization
