@@ -1,5 +1,5 @@
 //
-//  RetryQueue.swift
+//  RetryRequest.swift
 //  NetworkRetry
 //
 //  Created by Van Simmons on 11/2/15.
@@ -85,7 +85,7 @@ func requestJSON(method: Alamofire.Method, URLString: URLStringConvertible, para
                             // the network did not come back, forward the CFURLErrorNotConnectedToInternet
                             // to the original completion handler
                             completion(response: response)
-                        } // end if idleFor(waitInterval, orUntil: { wifiReach.isReachable() }) 
+                        } // end if idleFor(waitInterval, orUntil: { wifiReach.isReachable() })
                     }
                     else {
                         print("Unable to create Reachability object.  This is not good")
