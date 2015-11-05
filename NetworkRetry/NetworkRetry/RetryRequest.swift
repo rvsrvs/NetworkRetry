@@ -12,83 +12,125 @@ import Reachability
 import CFNetwork
 
 // Handler for completion of a service call
-public typealias AlamofireResponseCompletionHandler = (response:Alamofire.Response<AnyObject,NSError>) -> Void
+typealias AlamofireResponseCompletionHandler = (response:Alamofire.Response<AnyObject,NSError>) -> Void
 
-// Retry wrapper method around Alamofire
-// In addition to the standard Alamofire request methods, this accepts:
-//     retry:Bool to indicate whether or not to retry on CFURLErrorNotConnectedToInternet
-//     waitInterval:Double indicates the time to wait on the network to reappear
-//     completion:ServiceCompletionHandler to be called when we finally accept a result from Alamofire
-//
-// This is implemented as a top level function in the manner of Alamofire's own calls
-// The request object is returned immediately and can be queried
-func requestJSON(method: Alamofire.Method,
-    URLString: URLStringConvertible,
-    parameters: [String: AnyObject]? = nil,
-    retry:Bool = true,
-    waitInterval:Double = 30.0,
-    completion:AlamofireResponseCompletionHandler) -> Request
+/*
+ Retry wrapper method around Alamofire.  This method passes through to Alamofire and
+ in the event of a network down error, waits for the network to become available and
+ retries the request one time only.
+
+ In addition to the standard Alamofire request methods, this accepts:
+     retry:Bool to indicate whether or not to retry on CFURLErrorNotConnectedToInternet
+     waitInterval:Double indicates the time to wait on the network to reappear
+     completion:AlamofireResponseCompletionHandler to be called when we finally accept a result from Alamofire.
+
+ This is implemented as a top level function in the manner of Alamofire's own calls
+ The request object is returned immediately and can be queried
+*/
+func requestJSON(method: Alamofire.Method, URLString: URLStringConvertible, parameters: [String: AnyObject]? = nil,
+    retry:Bool = true, waitInterval:Double = 30.0, completion:AlamofireResponseCompletionHandler) -> Request
 {
     // Make a standard Alamofire network request.  We expect to receive JSON back
-    return Alamofire.request(method, URLString, parameters: parameters)
-        .responseJSON { (response:Response) -> Void in
-            // Handle the response from Alamofire
-            switch response.result {
-            case .Success:
-                // Just fall through with success
+    let retVal = Alamofire.request(method, URLString, parameters: parameters).responseJSON {
+        (response:Response) -> Void in
+        // Handle the response from Alamofire.  This callback is invoked
+        // After Alamofire has gone to the server, received a response and constructed
+        // JSON from the response.  Or received an error on the call
+        switch response.result {
+        case .Success:
+            // Just fall through to the original caller with success
+            completion(response: response)
+        case .Failure( let error ):
+            // If we receive an error OTHER THAN CFURLErrorNotConnectedToInternet, then
+            // complete with an error because this function does not deal with other errors
+            // though other errors could be added if desired
+            if error.code != Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue) {
                 completion(response: response)
-            case .Failure( let error ):
-                // If we receive an error OTHER THAN CFURLErrorNotConnectedToInternet, then
-                // complete with an error because this class does not deal with those errors
-                if error.code != Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue) {
+            }
+            else {
+                // The error encountered is due to Wifi being down.
+                
+                // If retry is false, this is fatal and we complete with
+                // the error response
+                if !retry {
                     completion(response: response)
                 }
                 else {
-                    // The network is down.  If retry is false, this is fatal and we complete with 
-                    // the error response
-                    if !retry {
-                        completion(response: response)
+                    // The network is down and retry is true so we will idle 
+                    // while waiting for Wifi to come back
+                    
+                    // We use Reachability to test for network availability
+                    // Since we want to pause all user interaction
+                    // at this point we can check for the network
+                    // inline rather than setting up all the notification
+                    // mechanism and using callbacks
+                    
+                    // NB If we wanted the user to be able to do other tasks while
+                    // waiting for this request to complete we would have to queue the request to
+                    // background and deal with multiple simultaneous actions at once.
+                    // This approach is much simpler but is applicable only for this
+                    // sort of application.
+                    
+                    // Create a reachability object
+                    if let wifiReach = Reachability.reachabilityForLocalWiFi() {
+                        // we will idle until a) the network is up or b) the waitInterval has been exceeded
+                        if idleFor(waitInterval, orUntil: { wifiReach.isReachable() }) {
+                            // the network came back - call ourself recursively
+                            // if the network goes away during this call, we will NOT try again
+                            // this call will invoke the completion handler for success
+                            requestJSON(method, URLString: URLString,
+                                parameters: parameters, retry: false, completion:completion)
+                        }
+                        else {
+                            // the network did not come back, forward the CFURLErrorNotConnectedToInternet
+                            // to the original completion handler
+                            completion(response: response)
+                        } // end if idleFor(waitInterval, orUntil: { wifiReach.isReachable() }) 
                     }
                     else {
-                        // we use Reachability to test for the network to have come back
-                        // Since we are hanging in this call for a time out we can
-                        // check this serially rather than setting up all the notification
-                        // mechanism
-                        if let wifiReach = Reachability.reachabilityForLocalWiFi() {
-                            // we will idle until a) the network is up or b) the waitInterval has been exceeded
-                            idle(waitInterval) { wifiReach.isReachable() }
-
-                            // either we have timed out or the network came back before the timeout was exceeded
-                            if wifiReach.isReachable() {
-                                // the network came back - call ourself recursively
-                                // if the network goes away during this call, DO NOT try again
-                                // this call will invoke the completion handler for success
-                                requestJSON(method, URLString: URLString,
-                                    parameters: parameters, retry: false, completion:completion)
-                            }
-                            else {
-                                // the network did not come back, forward the CFURLErrorNotConnectedToInternet
-                                // to the person who invoked the request
-                                completion(response: response)
-                            }
-                        }
-                    }
-                }
-            }
-    }
+                        print("Unable to create Reachability object.  This is not good")
+                        completion(response: response)
+                    } // end if let wifiReach = Reachability.reachabilityForLocalWiFi()
+                } // end if !retry
+            } // end if error.code != Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue)
+        } // end switch response.result
+    } // end let retVal = Alamofire.request(method, URLString, parameters: parameters).responseJSON
+    
+    return retVal
 }
 
-// function to idle the thread without hanging
-// NB, as written for now, this only works on the main thread
-func idle(waitInterval:Double, idleCondition: () -> Bool = { return false }) {
+/* 
+    idle the thread without hanging. 
+
+    Accepts:
+    
+    waitInterval:Double - how long to wait in seconds
+    orUntil:() -> Bool - a condition which if met immediately terminates the func
+
+    orUntil defaults to: { return false } which ensures that the method
+    will wait until the waitInterval is exceeded
+
+    returns true if the orUntil condition was met, false if waitInterval was reached
+
+    NB, as written now, this function only works on the main thread.
+    To work on background threads would require creating and adding timers
+    to the thread in order to keep runUntilDate from immediately returning
+*/
+func idleFor(waitInterval:Double, orUntil: () -> Bool = { return false }) -> Bool {
     // The date/time at which we started this call.  In the event the network is unavailable
     // we will give up waiting for it to come back at this time + waitInterval
     let startDate = NSDate()
-    while ( !idleCondition() && fabs(startDate.timeIntervalSinceNow) < waitInterval) {
+    var retVal = false
+    while (fabs(startDate.timeIntervalSinceNow) < waitInterval) {
+        // if the until condition has been met, capture that and break
+        retVal = orUntil()
+        if retVal { break }
         // Idle but do NOT hang the UI
         // We will do this test every 500 ms to see if we should proceed
         // we might want to make the polling frequency a parameter but 500ms
         // seems reasonable
         NSRunLoop.currentRunLoop().runUntilDate(NSDate(timeIntervalSinceNow: 0.5))
     }
+    
+    return retVal
 }

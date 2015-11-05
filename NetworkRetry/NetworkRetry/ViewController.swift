@@ -27,13 +27,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func fetch(sender: AnyObject) {
+        // clear the output
         self.logTextView.text = ""
+        
+        // start the spinner
         self.view.bringSubviewToFront(self.spinner)
         self.spinner.startAnimating()
         
         // Start the request
-        let req = NetworkRetry.requestJSON(Method.GET, URLString: endpoint, waitInterval: 10.0) { (response) -> Void in
-            
+        NetworkRetry.requestJSON(Method.GET, URLString: endpoint, waitInterval: 10.0) { (response) -> Void in
             // handle the response which is an Alamofire response object carrying JSON
             switch response.result {
             case .Success(let value):
@@ -42,12 +44,14 @@ class ViewController: UIViewController {
                 self.logTextView.text.appendContentsOf("error    = \(error)\n"  ) // result of response serialization
             }
             
+            // scroll to the bottom
             let range = NSRange(location: self.logTextView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)-1,length: 1)
             self.logTextView.scrollRangeToVisible(range)
+            
+            // stop the spinner
             self.spinner.stopAnimating()
             self.view.sendSubviewToBack(self.spinner)
         }
-        print("Now waiting on: \(req)")
     }
 }
 
