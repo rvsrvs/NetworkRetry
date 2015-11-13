@@ -35,7 +35,7 @@ func requestJSON(method: Alamofire.Method, URLString: URLStringConvertible, para
         (response:Response) -> Void in
         // Handle the response from Alamofire.  This callback is invoked
         // After Alamofire has gone to the server, received a response and constructed
-        // JSON from the response.  Or received an error along the way
+        // JSON from the response.  Or alternatively has received an error along the way
         switch response.result {
         case .Success:
             // Just fall through to the original invoker with the response
@@ -119,21 +119,21 @@ func requestJSON(method: Alamofire.Method, URLString: URLStringConvertible, para
     To work on background threads would require creating and adding timers
     to the thread in order to keep runUntilDate from immediately returning
 */
-func idleFor(waitInterval:Double, orUntil: () -> Bool = { return false }) -> Bool {
+func idleFor(waitInterval:Double, orUntil untilCondition: () -> Bool = { return false }) -> Bool {
     // The date/time at which we started this call.  In the event the network is unavailable
     // we will give up waiting for it to come back at this time + waitInterval
     let startDate = NSDate()
-    var retVal = false
-    while (fabs(startDate.timeIntervalSinceNow) < waitInterval) {
-        // if the until condition has been met, capture that and break
-        retVal = orUntil()
-        if retVal { break }
+    // if the until condition is met drop out and return true
+    while ( !untilCondition() ) {
+        // check to see if the wait interval has been exceeded
+        guard (fabs(startDate.timeIntervalSinceNow) < waitInterval) else {
+            return false
+        }
         // Idle but do NOT hang the UI
         // We will do this test every 500 ms to see if we should proceed
         // we might want to make the polling frequency a parameter but 500ms
         // seems reasonable
         NSRunLoop.currentRunLoop().runUntilDate(NSDate(timeIntervalSinceNow: 0.5))
     }
-    
-    return retVal
+    return true
 }
